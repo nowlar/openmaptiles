@@ -66,6 +66,17 @@ services:
       - ./build:/mapping
       - ./cache:/cache
       - ./style:/style
+  
+  import-modus:
+    image: "modus/tiles:latest"
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${PGDATABASE:-openmaptiles}
+      POSTGRES_USER: ${PGUSER:-openmaptiles}
+      POSTGRES_PASSWORD: ${PGPASSWORD:-openmaptiles}
+      PGPORT: ${PGPORT:-5432}
+    networks:
+      - postgres
 
   update-osm:
     <<: *openmaptiles-tools

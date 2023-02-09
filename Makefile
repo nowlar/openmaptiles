@@ -438,6 +438,10 @@ import-diff: start-db-nowait
 import-data: start-db
 	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-data
 
+.PHONY: import-modus
+import-modus: start-db
+	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus 
+
 .PHONY: import-sql
 import-sql: all start-db-nowait
 	$(DOCKER_COMPOSE) run $(DC_OPTS) openmaptiles-tools sh -c 'pgwait && import-sql' | \
