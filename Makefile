@@ -440,7 +440,7 @@ import-data: start-db
 
 .PHONY: import-modus
 import-modus: start-db
-	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus 
+	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus
 
 .PHONY: import-sql
 import-sql: all start-db-nowait

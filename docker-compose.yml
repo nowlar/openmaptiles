@@ -71,12 +71,11 @@ services:
     image: "modus/tiles:latest"
     env_file: .env
     environment:
-      POSTGRES_DB: ${PGDATABASE:-openmaptiles}
-      POSTGRES_USER: ${PGUSER:-openmaptiles}
-      POSTGRES_PASSWORD: ${PGPASSWORD:-openmaptiles}
-      PGPORT: ${PGPORT:-5432}
+      XSDEDIR: ${XSDEDIR:-/modus/data}
     networks:
       - postgres
+    volumes:
+      - ./data:/import
 
   update-osm:
     <<: *openmaptiles-tools
