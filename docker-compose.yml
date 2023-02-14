@@ -71,11 +71,11 @@ services:
     image: "modus/tiles:latest"
     env_file: .env
     environment:
-      XSDEDIR: ${XSDEDIR:-/modus/data}
+      XSDEDIR: ${XSDEDIR:-/data}
     networks:
       - postgres
     volumes:
-      - ./data:/import
+      - ./data:/data
 
   update-osm:
     <<: *openmaptiles-tools
