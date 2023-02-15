@@ -289,6 +289,11 @@ make generate-tiles-pg
 
 echo " "
 echo "-------------------------------------------------------------------------------------"
+echo "====> : Start uploading data to remarks service.                                     "
+make upload-modus
+
+echo " "
+echo "-------------------------------------------------------------------------------------"
 echo "====> : Stop PostgreSQL service ( but we keep PostgreSQL data volume for debugging )"
 make stop-db
 
