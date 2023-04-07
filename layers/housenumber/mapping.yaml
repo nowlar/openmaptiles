@@ -13,6 +13,12 @@ tables:
     - name: city
       key: addr:city
       type: string
+    - name: city_type
+      type: string
+    - name: place
+      type: string
+    - name: place_type
+      type: string
     - name: street
       key: addr:street
       type: string
