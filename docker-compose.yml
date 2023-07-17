@@ -71,7 +71,9 @@ services:
     image: "modus/tiles:latest"
     env_file: .env
     environment:
-      XSDEDIR: ${XSDEDIR:-/data}
+      REMARKS_HOST: ${REMARKS_HOST:-rds.modus}  
+      REMARKS_PORT: ${REMARKS_PORT:-8090}
+      XSDEDIR: ${XSDEDIR:-/tmp}
     networks:
       - postgres
     volumes:
