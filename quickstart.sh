@@ -275,10 +275,10 @@ else
 fi
 
 
-echo " "
-echo "-------------------------------------------------------------------------------------"
-echo "====> : Start importing data from modus XSDE schemes                                 "
-make import-modus
+#echo " "
+#echo "-------------------------------------------------------------------------------------"
+#echo "====> : Start importing data from modus XSDE schemes                                 "
+#make import-modus
 
 echo " "
 echo "-------------------------------------------------------------------------------------"
@@ -287,10 +287,10 @@ echo "      : Output MBTiles: ./data/${area}.mbtiles  "
 echo "      : Source code: https://github.com/openmaptiles/openmaptiles-tools/blob/master/bin/generate-tiles "
 make generate-tiles-pg
 
-echo " "
-echo "-------------------------------------------------------------------------------------"
-echo "====> : Start uploading data to remarks service.                                     "
-make upload-modus
+#echo " "
+#echo "-------------------------------------------------------------------------------------"
+#echo "====> : Start uploading data to remarks service.                                     "
+#make upload-modus
 
 echo " "
 echo "-------------------------------------------------------------------------------------"

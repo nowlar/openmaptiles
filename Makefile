@@ -446,6 +446,24 @@ import-modus: start-db
 upload-modus: start-db
 	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus python3 upload.py
 
+.PHONY: pathc-db-orig
+patch-db-orig: start-db
+	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus python3 dbpatch.py
+
+.PHONY: patch-db-modus
+patch-db-modus: start-db
+	$(DOCKER_COMPOSE) $(DC_CONFIG_CACHE) run $(DC_OPTS_CACHE) import-modus python3 dbpatch.py modus
+
+.PHONY: generate-tiles-modus
+generate-tiles-modus: import-modus patch-db-modus generate-tiles-pg upload-modus patch-db-orig
+
+.PHONY: clean-modus
+clean-modus: 
+	rm -rf data/geo.db*
+	rm -rf data/osmfts.db*
+	rm -rf data/*.json
+	rm -rf data/*.mbtiles
+
 .PHONY: import-sql
 import-sql: all start-db-nowait
 	$(DOCKER_COMPOSE) run $(DC_OPTS) openmaptiles-tools sh -c 'pgwait && import-sql' | \
